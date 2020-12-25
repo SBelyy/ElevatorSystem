@@ -21,7 +21,7 @@ namespace ElevatorSystem
         {
             int numberFloor = 0, numberPerson = 0;
 
-            if (textBox1.Text != "" || textBox1.Text != "")
+            if (textBox1.Text != "" || textBox2.Text != "")
             {
                 numberFloor = Convert.ToInt32(textBox1.Text);
                 numberPerson = Convert.ToInt32(textBox2.Text);
@@ -36,7 +36,7 @@ namespace ElevatorSystem
             else {
                 ((MainForm)this.Tag).setNumberOfPerson(numberPerson);
                 ((MainForm)this.Tag).setNumberOfFloor(numberFloor);
-                ((MainForm)this.Tag).createBuild();
+               // ((MainForm)this.Tag).createBuild();
                 this.Close();
             }
        

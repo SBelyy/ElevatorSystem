@@ -12,14 +12,18 @@ namespace ElevatorSystem
 {
     public partial class CreatePerson : Form
     {
+        private int firstFloor;
+        private int endFloor;
+
         public CreatePerson()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            firstFloor = 0;
+            endFloor = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int firstFloor = 0, endFloor = 0;
 
             if (textBox1.Text != "" || textBox1.Text != "")
             {
@@ -33,9 +37,23 @@ namespace ElevatorSystem
                 textBox1.Text = "";
                 textBox2.Text = "";
             }
-            else
+            else {
+                this.Close();
+            }
+           
+        }
+
+        public int FirstFloor { 
+            get {
+                return firstFloor;
+            }
+        }
+
+        public int EndFloor
+        {
+            get
             {
-               
+                return endFloor;
             }
         }
 

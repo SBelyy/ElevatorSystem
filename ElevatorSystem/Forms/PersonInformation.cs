@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace ElevatorSystem
 {
-    public partial class ExitData : Form
+    public partial class PersonInformation : Form
     {
-        public ExitData()
+        String status;
+
+        public PersonInformation(string status)
         {
             InitializeComponent();
+            this.status = status;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            label4.Text = "" + status;
         }
     }
 }

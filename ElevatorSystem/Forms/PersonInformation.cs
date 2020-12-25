@@ -18,6 +18,7 @@ namespace ElevatorSystem
         {
             InitializeComponent();
             this.status = status;
+            label4.Text = "" + status;
         }
 
         private void label4_Click(object sender, EventArgs e)

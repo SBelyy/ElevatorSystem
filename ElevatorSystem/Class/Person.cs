@@ -37,8 +37,8 @@ namespace ElevatorSystem
             lengthFloor = positionX + 370;
             sunWeight = 0;
 
-            status = "Движется на этаже " + numberFloor[0];
             this.numberFloor = numberFloor;
+            status = "Движется на этаже " + (numberFloor[0] + 1);
 
             Random rnd = new Random((int)(DateTime.Now.Ticks));
             speedX = 1;
@@ -67,7 +67,7 @@ namespace ElevatorSystem
             else if (!wait && !moveInLift && !exitFloor)
             {
                 wait = true;
-                status = "Ждёт на этаже " + numberFloor[0];
+                status = "Ждёт на этаже " + (numberFloor[0] + 1);
                 lift.callTheElevator(numberFloor[0], numberFloor[1]);
             }
             else if (numberFloor[0] == lift.CurrentFloor && !moveInLift && !exitFloor && lift.Weight < 400)
@@ -85,7 +85,7 @@ namespace ElevatorSystem
                 exitFloor = true;
                 positionY = lift.PositionY + 15;
                 lift.Weight = -weight;
-                status = "Уходит на этаже " + numberFloor[1];
+                status = "Уходит на этаже " + (numberFloor[1] + 1);
                 lift.exitTheElevator(numberFloor[1]);
             } else if (exitFloor) 
             {

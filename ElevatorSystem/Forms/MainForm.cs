@@ -34,7 +34,6 @@ namespace ElevatorSystem
         private int positionX;
         private int positionY;
         private int sumPersons;
-        Button newbutton;
 
         public DataInput form;
 
@@ -273,7 +272,7 @@ namespace ElevatorSystem
             }
             else 
             {
-                g.DrawImage(Properties.Resources.lift, lift.PositionX, lift.PositionY);
+                g.DrawImage(Properties.Resources.lift_open, lift.PositionX, lift.PositionY);
             }
         }
 

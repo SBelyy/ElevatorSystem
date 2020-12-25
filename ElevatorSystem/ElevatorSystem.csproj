@@ -166,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\lift.jpg" />
+    <None Include="Resources\lift_open.jpg" />
     <None Include="Resources\person.jpg" />
     <None Include="Resources\person_emp.jpg" />
     <None Include="Resources\lift_emp.jpg" />

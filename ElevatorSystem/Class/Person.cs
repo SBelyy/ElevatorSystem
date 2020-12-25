@@ -21,7 +21,6 @@ namespace ElevatorSystem
 
         private string status;
         private int weight;
-        private int sunWeight;
 
         private bool wait;
         private bool enable;
@@ -35,7 +34,6 @@ namespace ElevatorSystem
             this.positionX = positionX + 90;
             this.positionY = positionY + 20;
             lengthFloor = positionX + 370;
-            sunWeight = 0;
 
             this.numberFloor = numberFloor;
             status = "Движется на этаже " + (numberFloor[0] + 1);
@@ -76,6 +74,7 @@ namespace ElevatorSystem
                 moveInLift = true;
                 lift.Weight = weight;
                 lift.sumWeight = weight;
+                lift.MoveUp = false;
                 status = "Движется на нужный этаж";
                 lift.moveTheElevator(numberFloor[0]);
             }
@@ -85,6 +84,7 @@ namespace ElevatorSystem
                 exitFloor = true;
                 positionY = lift.PositionY + 15;
                 lift.Weight = -weight;
+                lift.MoveUp = false;
                 status = "Уходит на этаже " + (numberFloor[1] + 1);
                 lift.exitTheElevator(numberFloor[1]);
             } else if (exitFloor) 

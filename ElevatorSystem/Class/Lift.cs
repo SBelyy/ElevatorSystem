@@ -36,6 +36,7 @@ namespace ElevatorSystem
         private int speed;
         private int target;
         private int transported;
+        private DateTime date;
 
         protected Lift(int countButtons, int positionX, int positionY, int[] floorCoord) {
 
@@ -47,6 +48,8 @@ namespace ElevatorSystem
             weight = 0;
             target = 0;
             currentFloor = -1;
+
+            date = DateTime.Now;
 
             moveUp = true;
             count = -1;
@@ -96,10 +99,6 @@ namespace ElevatorSystem
         {
             floorsStart.Add(floorStart);
             floorsEnd.Add(floorEnd);
-            //IntCompare intCompare = new IntCompare();
-            //IntCompareDown intCompareDown = new IntCompareDown();
-            //floorsStart.Sort(intCompare);
-            //floorsEnd.Sort(intCompareDown);
             if (floorsStart.Count == 1)
             {
                 target = floorsStart[0];
@@ -158,10 +157,20 @@ namespace ElevatorSystem
         }
 
         public bool moveNext() {
-            if (moveUp) 
+            if (moveUp)
             {
                 move(target);
-            } 
+                date = DateTime.Now;
+                enable = true;
+            }
+            else 
+            {
+                if (DateTime.Now.Second - date.Second >= 2) 
+                {
+                    moveUp = true;
+                }
+                enable = false;
+            }
             return enable;
         }
 
@@ -264,6 +273,14 @@ namespace ElevatorSystem
             get
             {
                 return changeMoves;
+            }
+        }
+
+        public bool MoveUp
+        {
+            set
+            {
+                moveUp = value;
             }
         }
 
